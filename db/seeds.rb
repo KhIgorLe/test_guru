@@ -6,12 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-category_1 = Category.create(title: 'Математики')
-category_2 = Category.create(title: 'Английский')
+categories_params = [{title: 'Математики'}, {title: 'Английский'}]
 
-test_1 = Test.create(title: 'Сложение и вычитание', category_id: category_1.id)
-test_2 = Test.create(title: 'Умножение и деление',  category_id: category_1.id, level: 1)
-test_3 = Test.create(title: 'Английские слова',     category_id: category_2.id, level: 2)
+categories = Category.create(categories_params)
+
+test_1 = Test.create(title: 'Сложение и вычитание', category_id: categories[0].id)
+test_2 = Test.create(title: 'Умножение и деление',  category_id: categories[0].id, level: 1)
+test_3 = Test.create(title: 'Английские слова',     category_id: categories[1].id, level: 2)
 
 question_1 = Question.create(body: '2 + 2 = ?',  test_id: test_1.id)
 question_2 = Question.create(body: '4 - 5  = ?', test_id: test_1.id)
