@@ -10,8 +10,11 @@
 #
 
 class User < ApplicationRecord
+  has_many :results
+  has_many :tests, through: :results
+  has_many :author_tests, class_name: "Test", foreign_key: "author_id"
+
   def tests_with_level(level)
-    Test.joins('JOIN results ON tests.id = results.test_id')
-      .where("tests.level = :level AND results.user_id = :id ", level: level, id: id)
+    tests.where(level: level)
   end
 end
