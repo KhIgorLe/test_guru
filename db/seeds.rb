@@ -15,7 +15,7 @@ users = User.create(users_params)
 
 categories_params = [ {title: 'Математика'}, {title: 'Английский'} ]
 
-categories = Category.create(categories_params)
+categories = Category.unscoped.create(categories_params)
 
 tests_params = [
   { title: 'Сложение и вычитание', category: categories[0], author: users[0] },

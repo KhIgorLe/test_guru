@@ -12,4 +12,19 @@
 
 class Answer < ApplicationRecord
   belongs_to :question
+
+  validates :body, :question, presence: true
+  validates :body, uniqueness: { scope: :question, message: "Answer for question already exist" }
+
+  validate :validate_answers_count
+
+  scope :corrects, -> { where(correct: true) }
+
+  private
+
+  def validate_answers_count
+    return if question.blank?
+
+    errors.add(:answers, message: "may have up to 4 answers") if question.answers.count > 3
+  end
 end

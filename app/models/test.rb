@@ -19,7 +19,16 @@ class Test < ApplicationRecord
   has_many :results
   has_many :users, through: :results
 
-  def self.categories(title)
-    Test.joins(:category).where(categories: { title: title }).order(title: :desc).pluck(:title)
+  validates :title, :level, :category, :author, presence: true
+  validates :title, uniqueness: { scope: :level, message: "with this level already exists" }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to_than: 0 }
+
+  scope :level, -> (level) { where(level: level) }
+  scope :categories, -> (title) do
+    joins(:category).where(categories: {title: title}).order(title: :desc)
   end
+
+  scope :easy,   -> { level(0..1) }
+  scope :normal, -> { level(2..4) }
+  scope :hard,   -> { level(5..Float::INFINITY) }
 end
