@@ -19,7 +19,7 @@ class Test < ApplicationRecord
   has_many :results
   has_many :users, through: :results
 
-  validates :title, :level, :category, :author, presence: true
+  validates :title, :level, presence: true
   validates :title, uniqueness: { scope: :level, message: "with this level already exists" }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to_than: 0 }
 

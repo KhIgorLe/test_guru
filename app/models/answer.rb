@@ -13,7 +13,7 @@
 class Answer < ApplicationRecord
   belongs_to :question
 
-  validates :body, :question, presence: true
+  validates :body, presence: true
   validates :body, uniqueness: { scope: :question, message: "Answer for question already exist" }
 
   validate :validate_answers_count

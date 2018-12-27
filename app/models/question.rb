@@ -12,7 +12,7 @@
 class Question < ApplicationRecord
   belongs_to :test
 
-  validates :body, :test, presence: true
+  validates :body, presence: true
   validates :body, uniqueness: { scope: :test, message: "Question for test already exist" }
 
   has_many :answers

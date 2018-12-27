@@ -14,6 +14,5 @@ class Result < ApplicationRecord
   belongs_to :test
   belongs_to :user
 
-  validates :test, :user, presence: true
   validates :user, uniqueness: { scope: :test, message: "Test for user already exist" }
 end
