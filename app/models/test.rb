@@ -28,7 +28,9 @@ class Test < ApplicationRecord
     joins(:category).where(categories: {title: title}).order(title: :desc)
   end
 
-  scope :easy,   -> { level(0..1) }
-  scope :normal, -> { level(2..4) }
-  scope :hard,   -> { level(5..Float::INFINITY) }
+  scope :easy,       -> { level(0) }
+  scope :elementary, -> { level(1) }
+  scope :advanced,   -> { level(2) }
+  scope :hard,       -> { level(3) }
+  scope :hero,       -> { level(4..Float::INFINITY) }
 end

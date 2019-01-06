@@ -1,3 +1,15 @@
-<h1><%= @test.title %></h1>
-<h1><%= @question.body %></h1>
-<a data-method="delete" href="/tests/<%= @test.id %>/questions/<%= @question.id %>">Delete question</a>
+<h1>Test:</h1>
+<p><%= @test.title %></p>
+<h1>Question:</h1>
+<p><%= @question.body %></p>
+<h1>Answers:</h1>
+<Table>
+  <tr>
+    <th>Body:</th>
+    <th></th>
+  </tr>
+
+  <%= render @question.answers %>
+</Table>
+
+<%= link_to "Back", test_path(@test) %>

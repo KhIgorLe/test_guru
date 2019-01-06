@@ -1,0 +1,17 @@
+
+<p>
+  <strong>User:</strong>
+  <%= @user.name%>
+  <%= @user.email%>
+</p>
+
+Tests list:
+<Table>
+  <% @user.results.each do |result| %>
+    <tr>
+      <td><%= link_to result.test.title, test_path(result.test) %></td>
+      <td><%= "Completed" if result.completed? %></td>
+    </tr>
+  <% end %>
+</Table>
+<%= link_to "Back", users_path %>

@@ -1,0 +1,15 @@
+<%= form_with model: @user, local: true do |form| %>
+  <%= render 'shared/errors', resource: @user %>
+
+  <p>
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+  </p>
+
+  <p>
+    <%= form.label :email %>
+    <%= form.text_field :email, required: true %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
