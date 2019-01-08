@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :tests do
     resources :questions
   end
+
+  resources :categories, :users
 end
