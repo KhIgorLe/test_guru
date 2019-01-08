@@ -5,10 +5,6 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def show
-    respond_to do |format|
-      format.html { @question }
-      format.json{ render json: @question }
-    end
   end
 
   def new
@@ -19,7 +15,7 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_question_path(@test, @question)
+      redirect_to test_path(@test)
     else
       render :new
     end
@@ -30,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path(@test)
+      redirect_to test_path(@test)
     else
       render :edit
     end
@@ -39,7 +35,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_path(@test)
+    redirect_to test_path(@test)
   end
 
   private
