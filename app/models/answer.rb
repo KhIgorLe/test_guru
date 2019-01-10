@@ -16,7 +16,7 @@ class Answer < ApplicationRecord
   validates :body, presence: true
   validates :body, uniqueness: { scope: :question, message: "Answer for question already exist" }
 
-  validate :validate_answers_count
+  validate :validate_answers_count, on: :create
 
   scope :corrects, -> { where(correct: true) }
 
