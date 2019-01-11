@@ -17,6 +17,7 @@ class TestsController < ApplicationController
 
   def create
     @test = Test.new(test_params)
+
     if @test.save
       redirect_to tests_path
     else
@@ -37,11 +38,13 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
+
     redirect_to tests_path
   end
 
   def start
     @user.tests.push(@test)
+
     redirect_to @user.test_passage(@test)
   end
 

@@ -1,19 +1,17 @@
 class TestPassage < ApplicationRecord
+  SUCCESS_PERCENT = 85.freeze
+
   belongs_to :test
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', foreign_key: "current_question_id",
              optional: true
 
-  #  validates :user, uniqueness: { scope: :test, message: "Test for user already exist" }
-
-  before_validation :before_validation_set_first_question, on: :create
+  before_validation :set_first_question, on: :create
+  before_update     :set_next_question
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
+    self.correct_questions += 1 if correct_answer?(answer_ids)
 
-    self.current_question = next_question
     save!
   end
 
@@ -21,17 +19,36 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
+  def count_questions
+    test.questions.count
+  end
+
+  def current_question_number
+    test.questions.index(current_question).to_i + 1
+  end
+
+  def percent_correct_answers
+    100 * correct_questions / count_questions
+  end
+
+  def successfully_completed?
+    percent_correct_answers >= SUCCESS_PERCENT
+  end
+
   private
 
-  def before_validation_set_first_question
+  def set_first_question
     self.current_question = test.questions.first
   end
 
-  def correct_answer?(answer_ids)
-    correct_answers_count = correct_answers.count
+  def set_next_question
+    self.current_question = next_question
+  end
 
-    (correct_answers_count == correct_answers.where(id: answer_ids).count) &&
-      correct_answers.count == answer_ids.count
+  def correct_answer?(answer_ids)
+    return false if answer_ids.blank?
+
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 
   def correct_answers
@@ -41,5 +58,4 @@ class TestPassage < ApplicationRecord
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
   end
-
 end

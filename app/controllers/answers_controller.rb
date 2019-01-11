@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :find_question, only: %i[new create]
-  before_action :find_answer, only: %i[edit update destroy show]
+  before_action :find_answer,   only: %i[edit update destroy show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_answer_not_found
 
@@ -35,6 +35,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
+
     redirect_to question_path(@answer.question)
   end
 
@@ -55,5 +56,4 @@ class AnswersController < ApplicationController
   def rescue_with_answer_not_found
     render plain: "Answer not found"
   end
-
 end
