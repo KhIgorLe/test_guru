@@ -2,14 +2,7 @@
 <h2> Correct answers count: <%= @test_passage.correct_questions %></h2>
 <h3>
   Correct answers percent:
-  <span style="color:<%= @test_passage.successfully_completed? ? 'green' : 'red'%>;">
-    <%= @test_passage.percent_correct_answers %>%
-  </span>
+  <b style="color:<%= completed_color %>;"> <%= @test_passage.percent_correct_answers %>% </b>
+  <br>
+  <b style="color:<%= completed_color %>;"><%= completed_text %></b>
 </h3>
-<h4>
-  <% if @test_passage.successfully_completed? %>
-    <b style="color:green;"> Test successfully completed</b>
-  <% else %>
-    <b style="color:red;">Test failed</b>
-  <% end %>
-</h4>
