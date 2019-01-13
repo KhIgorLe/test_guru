@@ -8,7 +8,7 @@
 #  category_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  author_id   :integer
+#  author_id   :integer          not null
 #
 
 class Test < ApplicationRecord
@@ -16,8 +16,8 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: "User", foreign_key: "author_id"
 
   has_many :questions
-  has_many :results
-  has_many :users, through: :results
+  has_many :test_passages
+  has_many :users, through: :test_passages
 
   validates :title, :level, presence: true
   validates :title, uniqueness: { scope: :level, message: "with this level already exists" }

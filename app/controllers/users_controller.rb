@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, only: %i[edit update destroy show]
+
   def index
     @users = User.all
   end
@@ -13,6 +14,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
     if @user.save
       redirect_to users_path
     else
@@ -33,6 +35,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+
     redirect_to users_path
   end
 

@@ -1,6 +1,6 @@
 <tr>
-  <td><%= link_to question.body, test_question_path(question.test, question) %></td>
-  <td><%= link_to "Edit", edit_test_question_path(question.test, question) %></td>
-  <td><%= link_to "Delete", test_question_path(question.test, question),
+  <td><%= link_to question.body, question_path(question) %></td>
+  <td><%= link_to "Edit", edit_question_path(question) %></td>
+  <td><%= link_to "Delete", question_path(question),
                   method: :delete, data: { confirm: "Are you sure?" } %></td>
 </tr>

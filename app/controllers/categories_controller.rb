@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i[edit update destroy show]
+
   def index
     @categories = Category.all
   end
@@ -13,6 +14,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+
     if @category.save
       redirect_to categories_path
     else
@@ -33,6 +35,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category.destroy
+
     redirect_to categories_path
   end
 

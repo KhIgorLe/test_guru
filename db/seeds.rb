@@ -70,10 +70,3 @@ answers_params = [
 ]
 
 Answer.create(answers_params)
-
-result_params = [
-  { user: users[0], test: tests[0], completed: true },
-  { user: users[0], test: tests[1] }
-]
-
-Result.create(result_params)
