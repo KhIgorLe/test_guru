@@ -10,12 +10,12 @@
 #
 
 class User < ApplicationRecord
+
+  include Auth
+
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :author_tests, class_name: "Test", foreign_key: "author_id"
-
-  validates :email, :name, presence: true
-  validates :email, uniqueness: true
 
   def tests_with_level(level)
     tests.level(level)

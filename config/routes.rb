@@ -20,5 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :categories, :users
+  resources :categories
+  resources :users, except: :new
+
+  get :sign_up, to: 'users#new'
 end
