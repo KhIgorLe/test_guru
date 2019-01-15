@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #  resources :tests
-  #  resource :question, controller: :question
-  #  resource :categories, only: %i[index, show]
   root to: 'tests#index'
+
+  get :sign_up, to: 'users#new'
+  get :login,   to: 'sessions#new'
+
+  delete :logout, to: 'sessions#destroy'
+
   resources :tests do
     resources :questions, shallow: true  do
       resources :answers, shallow: true, except: :index
@@ -22,6 +24,5 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :users, except: :new
-
-  get :sign_up, to: 'users#new'
+  resources :sessions, only: :create
 end
