@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[new create]
   before_action :find_user, only: %i[edit update destroy show]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_user_not_found
 
   def index
     @users = User.all
@@ -16,7 +19,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_path
+      session[:user_id] = @user.id
+      redirect_to tests_path
     else
       render :new
     end
@@ -46,6 +50,12 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def rescue_with_user_not_found
+    flash[:alert] = 'User not found'
+
+    redirect_to root_path
   end
 end

@@ -1,16 +1,19 @@
-
 <p>
   <strong>User:</strong>
   <%= @user.name%>
+
+</p>
+
+<p>Email:
   <%= @user.email%>
 </p>
 
 Tests list:
 <Table>
-  <% @user.results.each do |result| %>
+  <% @user.test_passages.each do |test_passages| %>
     <tr>
-      <td><%= link_to result.test.title, test_path(result.test) %></td>
-      <td><%= "Completed" if result.completed? %></td>
+      <td><%= link_to test_passages.test.title, test_path(test_passages.test) %></td>
+      <td><%= "Completed" if test_passages.current_question == nil %></td>
     </tr>
   <% end %>
 </Table>
