@@ -15,7 +15,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(test_params.merge(author: current_user))
+    @test = current_user.author_tests.new(test_params)
 
     if @test.save
       redirect_to tests_path
@@ -54,7 +54,9 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render plain: "Test not found"
+    flash[:alert] = 'Test not found'
+
+    redirect_to root_path
   end
 
   def test_params
