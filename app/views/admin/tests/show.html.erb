@@ -32,9 +32,10 @@
     <th colspan="2">Actions</th>
   </tr>
 
-  <%= render @test.questions %>
+  <%#= render @test.questions %>
+  <%= render partial: 'questions/question', collection: @test.questions %>
 
 </Table>
-<%= link_to "Back", tests_path %>
+<%= link_to "Back", admin_tests_path %>
 
 
