@@ -3,6 +3,7 @@
 <h1>Question:</h1>
 <p><%= @question.body %></p>
 <h1>Answers:</h1>
+<td><%= link_to "New answer", new_admin_question_answer_path(@question) %></td>
 <Table>
   <tr>
     <th colspan="2">Body:</th>
@@ -12,4 +13,4 @@
   <%= render @question.answers %>
 </Table>
 
-<%= link_to "Back", test_path(@question.test) %>
+<%= link_to "Back", admin_test_path(@question.test) %>

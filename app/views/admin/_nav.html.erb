@@ -1,6 +1,9 @@
+<h1>TestGuru Admin panel</h1>
 <% if user_signed_in?  %>
-  <p>Welcome <%= current_user.name %> <%= link_to "Guru", root_path %></p>
+  Welcome <%= current_user.name %> Guru
   <br>
+  <%= link_to "Tests", admin_tests_path %>
+  <%= link_to "Categories", admin_categories_path %>
   <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
 <% else %>
   <%= link_to "Login", new_user_session_path %>

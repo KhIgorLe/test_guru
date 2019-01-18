@@ -1,4 +1,4 @@
-class AnswersController < ApplicationController
+class Admin::AnswersController < Admin::BaseController
   before_action :find_question, only: %i[new create]
   before_action :find_answer,   only: %i[edit update destroy show]
 
@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
 
     if @answer.save
-      redirect_to question_path(@question)
+      redirect_to admin_question_path(@question)
     else
       render :new
     end
@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      redirect_to question_path(@answer.question)
+      redirect_to admin_question_path(@answer.question)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class AnswersController < ApplicationController
   def destroy
     @answer.destroy
 
-    redirect_to question_path(@answer.question)
+    redirect_to admin_question_path(@answer.question)
   end
 
   private
@@ -54,6 +54,6 @@ class AnswersController < ApplicationController
   end
 
   def rescue_with_answer_not_found
-    redirect_to tests_path, alert: "Answer not found"
+    redirect_to admin_tests_path, alert: "Answer not found"
   end
 end

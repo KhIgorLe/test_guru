@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, presence: true #if: -> { password.blank? }
+  validates :password, presence: true
   validates :password, confirmation: true
 
   def tests_with_level(level)
