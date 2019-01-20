@@ -1,0 +1,12 @@
+<h1>Categories list:</h1>
+<%= link_to "New category", new_admin_category_path %>
+<Table>
+  <tr>
+    <th>Tilte:</th>
+    <th colspan="2">Actions</th>
+  </tr>
+
+  <%= render @categories %>
+</Table>
+<%= link_to "Back", admin_tests_path %>
+
