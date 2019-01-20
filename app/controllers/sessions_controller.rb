@@ -1,5 +1,4 @@
 class SessionsController < Devise::SessionsController
-  before_action :authenticate_user!
   after_action :greeting, only: :create
 
   private
@@ -9,7 +8,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def after_sign_in_path_for(resource)
-    if resource.is_a?(Admin)
+    if resource.admin?
       admin_tests_path
     else
       root_path
