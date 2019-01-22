@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
   private
 
   def greeting
-    flash[:success] = "Hello #{current_user.first_name }"
+    flash[:success] = t('.greeting', name: current_user.first_name)
   end
 
   def after_sign_in_path_for(resource)

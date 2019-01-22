@@ -1,33 +1,100 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  layouts:
+    nav:
+      welcome: "Welcome %{name}"
+      start_page: "Start page"
+      logout: "Logout"
+
+    footer:
+      description: "Here is the text of a brief description of the project"
+      link_to_thinknetica: "Study project at Thinknetica online school"
+
+  sessions:
+    greeting: "Hello %{name}"
+
+  helpers:
+    submit:
+      create: "Create"
+      update: "Update"
+    select:
+      prompt: "Select"
+
+  time:
+    formats:
+      short: "%m-%d-%Y %H:%M"
+
+  tests:
+    test:
+      start: "Start"
+    index:
+      header: "Lists test:"
+      title: "Title"
+      level: "Level"
+      category: "Category"
+      questions: "Questions"
+
+  admin:
+    nav:
+      header: "Admin panel"
+      welcome: "Welcome %{name}"
+      logo: "Guru"
+      link_to_tests: "Tests"
+      link_to_categoties: "Categories"
+      logout: "Logout"
+    tests:
+      test:
+        edit: "Edit"
+        delete: "Delete"
+        confirm: "Are you sure?"
+      edit:
+        header: "Edit test"
+      index:
+        header: "List tests:"
+        new: "Create test"
+        title: "Title"
+        level: "Level"
+        category: "Category"
+        author: "Author"
+        questions: "Questions"
+        actions: "Actions"
+      new:
+        header: "Enter data to create a test:"
+      show:
+        header: "Test:"
+        actions: "Actions"
+        title: "Title:"
+        level: "Level:"
+        category: "Category:"
+        author: "Author:"
+        questions: "Questions:"
+        date_create: "Date of creation"
+        new_question: "New question"
+      create:
+        success: "Test created"
+      update:
+        success: "Test updated"
+
+  test_passages:
+    result:
+      header: "Test %{title} completed"
+      answers_count: "Correct count answers: %{count}"
+      answers_percent: "Correct answers:"
+
+    show:
+      header: "Passing the test %{title}"
+      count_questions: "Count questions: %{count}"
+      current_question_number: "Current question number: %{number}"
+      next: "Next"
+
+  failed: "Test failed"
+  success: "Test successfully completed"
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed test!"

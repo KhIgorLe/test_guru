@@ -6,24 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+admin = Admin.create(first_name: 'Admin', last_name: 'Guru',
+                     email: 'admin@example.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now )
+
 users_params = [
-  { name: 'Игорь', email: 'user1@example.com', password: 'qwert' },
-  { name: 'Миша',  email: 'user2@example.com', password: 'qwert' }
+  { first_name: 'Игорь', email: 'user1@example.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now },
+  { first_name: 'Миша',  email: 'user2@example.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now }
 ]
 
-users = User.create(users_params)
+User.create(users_params)
 
 categories_params = [ {title: 'Математика'}, {title: 'Английский'} ]
 
 categories = Category.unscoped.create(categories_params)
 
 tests_params = [
-  { title: 'Сложение и вычитание', category: categories[0], author: users[0] },
-  { title: 'Умножение и деление',  category: categories[0], level: 1, author: users[0] },
-  { title: 'Английские слова',     category: categories[1], level: 2, author: users[0] }
+  { title: 'Сложение и вычитание', category: categories[0] },
+  { title: 'Умножение и деление',  category: categories[0], level: 1 },
+  { title: 'Английские слова',     category: categories[1], level: 2 }
 ]
 
-tests = Test.create(tests_params)
+tests = admin.author_tests.create(tests_params)
 
 questions_params = [
   { body: '2 + 2 = ?',  test: tests[0] },

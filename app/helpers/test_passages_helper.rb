@@ -9,9 +9,9 @@ module TestPassagesHelper
 
   def completed_text
     if @test_passage.successfully_completed?
-      "Test successfully completed"
+      t('success')
     else
-      "Test failed"
+      t('failed')
     end
   end
 end
