@@ -1,8 +1,5 @@
 <% if user_signed_in?  %>
-  <p>Welcome <%= current_user.name %> <%= link_to "Guru", root_path %></p>
+  <p> <%= t('.welcome', name: current_user.name) %> <%= link_to t('.start_page'), root_path %></p>
   <br>
-  <%= link_to "Logout", destroy_user_session_path, method: "delete" %>
-<% else %>
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Registration", new_user_registration_path %>
+  <%= link_to t('.logout'), destroy_user_session_path, method: "delete" %>
 <% end %>

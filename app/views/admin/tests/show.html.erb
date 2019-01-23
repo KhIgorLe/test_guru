@@ -1,40 +1,37 @@
-<h1>Test:</h1>
+<h1><%= t('.header') %></h1>
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @test.title%>
 </p>
 
 <p>
-  <strong>Level:</strong>
+  <strong><%= t('.level') %></strong>
   <%= test_level(@test) %>
 </p>
 
 <p>
-  <strong>Category:</strong>
+  <strong><%= t('.category') %></strong>
   <%= @test.category.title %>
 </p>
 
 <p>
-  <strong>Author:</strong>
+  <strong><%= t('.author') %></strong>
   <%= @test.author.name %>
 </p>
 
 <p>
-  <strong>Date create:</strong>
-  <%= @test.created_at %>
+  <strong><%= t('.date_create') %>:</strong>
+  <%= l(@test.created_at, format: :short) %>
 </p>
 
-<h1>Questions list:</h1>
-<%= link_to "New question", new_admin_test_question_path(@test) %>
+<h1><%= t('.questions') %></h1>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test) %>
 <Table>
   <tr>
     <th>Body:</th>
-    <th colspan="2">Actions</th>
+    <th colspan="2"><%= t('.actions') %></th>
   </tr>
 
   <%= render partial: 'admin/questions/question', collection: @test.questions %>
 
 </Table>
-<%= link_to "Back", admin_tests_path %>
-
-

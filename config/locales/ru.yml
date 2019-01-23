@@ -1,2 +1,102 @@
 ru:
-  hello: "Привет мир"
+  layouts:
+    nav:
+      welcome: "Добро пожаловать %{name}"
+      start_page: "Главная страница"
+      logout: "Выйти"
+
+    footer:
+      description: "Тут текст краткого описания проекта"
+      link_to_thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+
+  sessions:
+    greeting: "Привет %{name}"
+
+  helpers:
+    submit:
+      create: "Создать"
+      update: "Обновить"
+    select:
+      prompt: "Выбрать"
+
+  time:
+    formats:
+      short: "%d-%m-%Y %H:%M"
+
+  tests:
+    test:
+      start: "Старт"
+    index:
+      header: "Список тестов:"
+      title: "Название теста"
+      level: "Уровень"
+      category: "Категория"
+      questions: "Вопросы"
+
+  admin:
+    nav:
+      header: "Административная панель"
+      welcome: "Добро пожаловать %{name}"
+      logo: "Гуру"
+      link_to_tests: "Тесты"
+      link_to_categoties: "Категории"
+      logout: "Выход"
+    tests:
+      test:
+        edit: "Изменить"
+        delete: "Удалить"
+        confirm: "Вы уверены?"
+      edit:
+        header: "Изменить тест"
+      index:
+        header: "Список тестов:"
+        new: "Создать тест"
+        title: "Название теста"
+        level: "Уровень"
+        category: "Категория"
+        author: "Автор"
+        questions: "Вопросы"
+        actions: "Действия"
+      new:
+        header: "Введите данные для создания теста:"
+      show:
+        header: "Тест:"
+        actions: "Действия"
+        title: "Название теста:"
+        level: "Уровень:"
+        category: "Категория:"
+        author: "Автор:"
+        questions: "Вопросы:"
+        date_create: "Дата создания"
+        new_question: "Новый вопрос"
+      create:
+        success: "Тест создан"
+      update:
+        success: "Тест обновлён"
+
+  test_passages:
+    result:
+      header: "Тест %{title} завершён"
+      answers_count: "Корректное количество ответов: %{count}"
+      answers_percent: "Корректных ответов:"
+
+    show:
+      header: "Прохождение теста %{title}"
+      count_questions: "Количество вопросов: %{count}"
+      current_question_number: "Текущий вопрос номер: %{number}"
+      next: "Следующий"
+
+  failed: "Тест провален"
+  success: "Тест успешно завершён"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        one: "Онаружена %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на ТестГуру"

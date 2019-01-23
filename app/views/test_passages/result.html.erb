@@ -1,7 +1,7 @@
-<h1>The <%= @test_passage.test.title %> Test was completed</h1>
-<h2> Correct answers count: <%= @test_passage.correct_questions %></h2>
+<h1><%= t('.header', title: @test_passage.test.title) %></h1>
+<h2> <%= t('.answers_count', count: @test_passage.correct_questions) %></h2>
 <h3>
-  Correct answers percent:
+  <%= t('.answers_percent') %>
   <b style="color:<%= completed_color %>;"> <%= @test_passage.percent_correct_answers %>% </b>
   <br>
   <b style="color:<%= completed_color %>;"><%= completed_text %></b>
