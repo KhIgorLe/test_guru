@@ -1,6 +1,9 @@
-<h1><%= t('.header') %></h1>
-<%= t('.welcome', name: current_user.name) %> <%= link_to t('.logo'), root_path %>
-<br>
-<%= link_to t('.link_to_tests'), admin_tests_path %>
-<%= link_to t('.link_to_categoties'), admin_categories_path %>
-<%= link_to t('.logout'), destroy_user_session_path, method: "delete" %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "TestGuru", root_path %></h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <%= link_to t('.link_to_tests'), admin_tests_path, class: "p-2 text-dark" %>
+    <%= link_to t('.link_to_categoties'), admin_categories_path, class: "p-2 text-dark" %>
+  </nav>
+
+  <%= link_to t('.logout'), destroy_user_session_path, method: "delete", class: "btn btn-outline-primary" %>
+</div>

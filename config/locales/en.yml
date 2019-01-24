@@ -1,9 +1,10 @@
 en:
   layouts:
     nav:
-      welcome: "Welcome %{name}"
-      start_page: "Start page"
       logout: "Logout"
+      login: "Login"
+      sign_up: "Sign up"
+      control_panel: "Control panel"
 
     footer:
       description: "Here is the text of a brief description of the project"
@@ -35,9 +36,6 @@ en:
 
   admin:
     nav:
-      header: "Admin panel"
-      welcome: "Welcome %{name}"
-      logo: "Guru"
       link_to_tests: "Tests"
       link_to_categoties: "Categories"
       logout: "Logout"

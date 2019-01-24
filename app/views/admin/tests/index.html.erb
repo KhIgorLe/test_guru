@@ -1,15 +1,17 @@
 <h1><%= t('.header') %></h1>
 <%= link_to t('.new'), new_admin_test_path %>
 
-<table>
-  <tr>
-    <th><%= t('.title') %></th>
-    <th><%= t('.level') %></th>
-    <th><%= t('.category') %></th>
-    <th><%= t('.author') %></th>
-    <th><%= t('.questions') %></th>
-    <th colspan="2"><%= t('.actions') %></th>
-  </tr>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th><%= t('.title') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.category') %></th>
+      <th><%= t('.author') %></th>
+      <th><%= t('.questions') %></th>
+      <th colspan="2"><%= t('.actions') %></th>
+    </tr>
+  </thead>
 
   <%= render @tests %>
 </table>

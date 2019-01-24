@@ -54,6 +54,8 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    redirect_to root_path, alert: "Question not found"
+    flash[:warning] = "Question not found"
+
+    redirect_to root_path
   end
 end

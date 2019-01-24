@@ -1,5 +1,14 @@
-<% if user_signed_in?  %>
-  <p> <%= t('.welcome', name: current_user.name) %> <%= link_to t('.start_page'), root_path %></p>
-  <br>
-  <%= link_to t('.logout'), destroy_user_session_path, method: "delete" %>
-<% end %>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal"><%= link_to "TestGuru", root_path %></h5>
+  <% if user_signed_in?  %>
+    <% if current_user.admin? %>
+      <%= link_to t('.control_panel'), admin_tests_path, class: "p-2 text-dark" %>
+    <% end %>
+    <%= link_to t('.logout'), destroy_user_session_path, method: "delete", class: "btn btn-outline-primary" %>
+  <% else %>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <%= link_to t('.login'), new_user_session_path, class: "p-2 text-dark" %>
+      <%= link_to t('.sign_up'), new_user_registration_path, class: "p-2 text-dark" %>
+    </nav>
+  <% end %>
+</div>

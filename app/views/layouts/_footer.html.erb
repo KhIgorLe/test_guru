@@ -1,11 +1,14 @@
-<p>
-  <%= t('.description') %>
-  <br>
-  <%= link_to t('.link_to_thinknetica'), " https://thinknetica.com", target: '_blank' %>
-</p>
-
-<p>
-  <%= github_url "KhIgorLe", "test_guru", target: '_blank' %>
-  Igor
-  <%= current_year %>
-</p>
+<footer class="my-5 pt-1 text-muted text-center text-small">
+  <p class="mb-1">
+    <%= t('.description') %>
+  </p>
+  <p class="mb-1">
+    &copy; <%= current_year %>
+    <%= github_url "KhIgorLe", "test_guru", target: '_blank' %>
+  </p>
+  <ul class="list-inline">
+    <li class="list-inline-item">
+      <%= link_to t('.link_to_thinknetica'), " https://thinknetica.com", target: '_blank' %>
+    </li>
+  </ul>
+</footer>
