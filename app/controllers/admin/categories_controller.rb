@@ -52,6 +52,8 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def rescue_with_category_not_found
-    redirect_to tests_path, alert: "Category not found"
+    flash[:warning] = "Category not found"
+
+    redirect_to tests_path
   end
 end

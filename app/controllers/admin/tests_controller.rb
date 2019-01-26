@@ -48,7 +48,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    flash[:alert] = 'Test not found'
+    flash[:warning] = 'Test not found'
 
     redirect_to root_path
   end

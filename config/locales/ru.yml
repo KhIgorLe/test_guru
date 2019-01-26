@@ -1,9 +1,10 @@
 ru:
   layouts:
     nav:
-      welcome: "Добро пожаловать %{name}"
-      start_page: "Главная страница"
       logout: "Выйти"
+      login: "Логин"
+      sign_up: "Регистрация"
+      control_panel: "Панель управления"
 
     footer:
       description: "Тут текст краткого описания проекта"
@@ -35,9 +36,6 @@ ru:
 
   admin:
     nav:
-      header: "Административная панель"
-      welcome: "Добро пожаловать %{name}"
-      logo: "Гуру"
       link_to_tests: "Тесты"
       link_to_categoties: "Категории"
       logout: "Выход"

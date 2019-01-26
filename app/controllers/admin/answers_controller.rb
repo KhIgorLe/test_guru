@@ -54,6 +54,8 @@ class Admin::AnswersController < Admin::BaseController
   end
 
   def rescue_with_answer_not_found
-    redirect_to admin_tests_path, alert: "Answer not found"
+    flash[:warning] = "Answer not found"
+
+    redirect_to admin_tests_path
   end
 end
