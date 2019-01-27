@@ -78,6 +78,10 @@ ru:
       answers_count: "Корректное количество ответов: %{count}"
       answers_percent: "Корректных ответов:"
 
+    gist:
+      success: "<a href=%{url} target='_blank'>Gist</a> успешно сохранён"
+      warning: "Во время сохранения Gist произошла ошибка"
+
     show:
       header: "Прохождение теста %{title}"
       count_questions: "Количество вопросов: %{count}"
@@ -98,3 +102,5 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на ТестГуру"
+
+  gist_params: "Вопрос про %{test} от ТестГуру"

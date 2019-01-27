@@ -3,6 +3,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <%= link_to t('.link_to_tests'), admin_tests_path, class: "p-2 text-dark" %>
     <%= link_to t('.link_to_categoties'), admin_categories_path, class: "p-2 text-dark" %>
+    <%= link_to 'Gist', admin_gists_path, class: "p-2 text-dark" %>
   </nav>
 
   <%= link_to t('.logout'), destroy_user_session_path, method: "delete", class: "btn btn-outline-primary" %>
