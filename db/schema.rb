@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_094239) do
+ActiveRecord::Schema.define(version: 2019_01_27_140642) do
 
   create_table "answers", force: :cascade do |t|
     t.string "body", null: false
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2019_01_22_094239) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "gists", force: :cascade do |t|
+    t.string "url", null: false
+    t.integer "question_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_gists_on_question_id"
+    t.index ["user_id"], name: "index_gists_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -85,4 +95,5 @@ ActiveRecord::Schema.define(version: 2019_01_22_094239) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["type"], name: "index_users_on_type"
   end
+
 end

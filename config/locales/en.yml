@@ -78,6 +78,10 @@ en:
       answers_count: "Correct count answers: %{count}"
       answers_percent: "Correct answers:"
 
+    gist:
+      success: "<a href=%{url} target='_blank'>Gist</a> was successfully created"
+      warning: "An error occurred while saving gist"
+
     show:
       header: "Passing the test %{title}"
       count_questions: "Count questions: %{count}"
@@ -96,3 +100,5 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed test!"
+
+  gist_params: "Answer about %{test} from TestGuru"

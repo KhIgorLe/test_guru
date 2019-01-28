@@ -33,3 +33,5 @@
 .git
 *.keep
 database.yml
+
+.env

@@ -9,9 +9,12 @@ module ApplicationHelper
 
   def flash_class(key)
     case key
-      when 'notice' then 'alert alert-info'
-      when 'success' then 'alert alert-success'
-      when 'warning' then 'alert alert-warning'
+    when 'notice'
+      'alert alert-info'
+    when 'success'
+      'alert alert-success'
+    when 'warning', 'alert'
+      'alert alert-warning'
     end
   end
 end

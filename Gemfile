@@ -40,7 +40,13 @@ gem 'annotate'
 
 gem 'devise', '~> 4.0'
 
+gem 'faraday'
+
 gem 'rails-i18n', '~> 5.1.2'
+
+gem "octokit", "~> 4.0"
+
+gem 'dotenv-rails'
 
 #ui
 

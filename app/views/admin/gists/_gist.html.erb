@@ -1,0 +1,5 @@
+<tr>
+  <td><%= gist.user.email%></td>
+  <td><%= link_to gist.question.body.truncate(25), admin_question_path(gist.question) %></td>
+  <td><%= link_to gist.hash_url, gist.url, target: '_blank' %></td>
+</tr>
