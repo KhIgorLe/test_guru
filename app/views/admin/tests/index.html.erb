@@ -1,10 +1,14 @@
 <h1><%= t('.header') %></h1>
-<%= link_to t('.new'), new_admin_test_path %>
+<%= link_to t('.new'), new_admin_test_path, class: 'btn btn-primary' %>
 
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th><%= t('.title') %></th>
+      <th class="sort-by-title pointer">
+        <%= t('.title') %>
+        <%= octicon "arrow-up", class: 'text-success hide' %>
+        <%= octicon "arrow-down", class: 'text-success hide' %>
+      </th>
       <th><%= t('.level') %></th>
       <th><%= t('.category') %></th>
       <th><%= t('.author') %></th>
