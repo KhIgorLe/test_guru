@@ -1,10 +1,19 @@
 <tr>
-  <td><%= link_to test.title, admin_test_path(test) %></td>
-  <td><%= test_level(test) %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.author.name %></td>
-  <td><%= test.questions.count %></td>
-  <td><%= link_to t('.edit'), edit_admin_test_path(test), class: 'btn btn-primary' %></td>
-  <td><%= link_to t('.delete'), admin_test_path(test), method: :delete, data: { confirm: t('.confirm') },
-                             class: 'btn btn-primary' %></td>
+  <td>
+    <%= content_tag :span, class: 'test-title', data: { test_id: test.id } do %>
+      <%= link_to test.title, admin_test_path(test) %>
+    <% end %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </td>
+  <td class="align-middle"><%= test_level(test) %></td>
+  <td class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle"><%= test.author.name %></td>
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle">
+    <%= link_to t('.edit'), edit_admin_test_path(test),
+                data: { test_id: test.id},
+                class: 'btn btn-primary form-inline-link' %>
+  </td>
+  <td class="align-middle"><%= link_to t('.delete'), admin_test_path(test), method: :delete,
+                                       data: { confirm: t('.confirm') },class: 'btn btn-primary' %></td>
 </tr>

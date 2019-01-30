@@ -71,6 +71,11 @@ ru:
         success: "Тест создан"
       update:
         success: "Тест обновлён"
+        submit: "Изменить название"
+      form_inline:
+        submit: "Ok"
+      update_inline:
+        success: "Название теста обновлёно"
 
   test_passages:
     result:
@@ -83,7 +88,7 @@ ru:
       warning: "Во время сохранения Gist произошла ошибка"
 
     show:
-      header: "Прохождение теста %{title}"
+      header: "Прохождение теста %{title}:"
       count_questions: "Количество вопросов: %{count}"
       current_question_number: "Текущий вопрос номер: %{number}"
       next: "Следующий"

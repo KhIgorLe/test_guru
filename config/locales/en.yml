@@ -71,6 +71,10 @@ en:
         success: "Test created"
       update:
         success: "Test updated"
+      form_inline:
+        submit: "Ok"
+      update_inline:
+        success: "Test title updated"
 
   test_passages:
     result:
@@ -83,7 +87,7 @@ en:
       warning: "An error occurred while saving gist"
 
     show:
-      header: "Passing the test %{title}"
+      header: "Passing the test %{title}:"
       count_questions: "Count questions: %{count}"
       current_question_number: "Current question number: %{number}"
       next: "Next"

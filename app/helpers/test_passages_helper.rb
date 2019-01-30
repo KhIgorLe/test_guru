@@ -14,4 +14,8 @@ module TestPassagesHelper
       t('failed')
     end
   end
+
+  def progress
+    (@test_passage.current_question_number - 1) * 100 / @test_passage.count_questions
+  end
 end
