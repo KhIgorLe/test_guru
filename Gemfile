@@ -49,7 +49,6 @@ gem "octokit", "~> 4.0"
 gem 'dotenv-rails'
 
 #ui
-
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.2.1'
 gem 'octicons_helper'
