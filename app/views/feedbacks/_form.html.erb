@@ -1,0 +1,15 @@
+<%= form_tag feedbacks_path do %>
+  <p>
+    <%= label_tag :subject, t('.subject') %>
+    <%= text_field_tag :subject %>
+  </p>
+
+  <p>
+    <%= label_tag :body, t('.body') %>
+    <%= text_area_tag :body %>
+  </p>
+
+  <p>
+    <%= submit_tag t('.submit') %>
+  </p>
+<% end %>
