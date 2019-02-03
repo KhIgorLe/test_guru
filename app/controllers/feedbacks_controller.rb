@@ -6,10 +6,17 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    message_params = feedback_params.merge(email: current_user.email)
+    if feedback_params[:subject].blank? || feedback_params[:body].blank?
+      flash[:warning] = t('.create')
 
-    FeedbacksMailer.send_feedback(message_params).deliver_now
-    redirect_to root_path
+      redirect_to new_feedback_path
+    else
+      message_params = feedback_params.merge(email: current_user.email)
+
+      FeedbacksMailer.send_feedback(message_params).deliver_now
+
+      redirect_to root_path
+    end
   end
 
   private

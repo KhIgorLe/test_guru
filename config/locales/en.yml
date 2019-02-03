@@ -113,5 +113,6 @@ en:
       subject: "Subject"
     new:
       header: "Create feedback"
+    create: "You did not complete the data to create a feedback"
 
   gist_params: "Answer about %{test} from TestGuru"
