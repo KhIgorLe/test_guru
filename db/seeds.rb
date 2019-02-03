@@ -8,7 +8,7 @@
 
 
 admin = Admin.create(first_name: 'Admin', last_name: 'Guru',
-                     email: 'admin@example.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now )
+                     email: 'igor.kharchuk85@gmail.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now )
 
 users_params = [
   { first_name: 'Игорь', email: 'user1@example.com', password: 'qwerty', password_confirmation: 'qwerty', confirmed_at: Time.zone.now },

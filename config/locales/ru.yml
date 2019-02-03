@@ -9,6 +9,7 @@ ru:
     footer:
       description: "Тут текст краткого описания проекта"
       link_to_thinknetica: "Учебный проект в онлайн-школе Thinknetica"
+      link_to_feedback: "Обратная связь"
 
   sessions:
     greeting: "Привет %{name}"
@@ -107,5 +108,14 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на ТестГуру"
+
+  feedbacks:
+    form:
+      submit: "Отправить"
+      body: "Текст"
+      subject: "Тема"
+    new:
+      header: "Создайте отзыв"
+    create: "Вы не заполнили данные для создания отзыва"
 
   gist_params: "Вопрос про %{test} от ТестГуру"

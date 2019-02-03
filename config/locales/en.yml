@@ -9,6 +9,7 @@ en:
     footer:
       description: "Here is the text of a brief description of the project"
       link_to_thinknetica: "Study project at Thinknetica online school"
+      link_to_feedback: "Feedback"
 
   sessions:
     greeting: "Hello %{name}"
@@ -104,5 +105,14 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed test!"
+
+  feedbacks:
+    form:
+      submit: "Send"
+      body: "Body"
+      subject: "Subject"
+    new:
+      header: "Create feedback"
+    create: "You did not complete the data to create a feedback"
 
   gist_params: "Answer about %{test} from TestGuru"
