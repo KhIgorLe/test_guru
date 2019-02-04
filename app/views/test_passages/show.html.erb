@@ -1,6 +1,12 @@
 <h1><%= t('.header', title: @test_passage.test.title) %></h1>
 <progress max=100 id="progress" data-progress-value=<%= progress %>></progress>
 <br>
+
+<p>
+  <%= t('.time') %>
+  <%= content_tag :span, nil, id: 'timer', data: { remaining_seconds: @test_passage.remaining_seconds } %>
+</p>
+
 <b> <%= t('.count_questions', count: @test_passage.count_questions) %></b>
 <br>
 <b><%= t('.current_question_number', number: @test_passage.current_question_number) %></b>

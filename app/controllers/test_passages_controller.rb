@@ -1,6 +1,7 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_test_passage, only: %i[show update result gist]
+  before_action :check_timeout, only: :update
 
   def show
   end
@@ -36,6 +37,10 @@ class TestPassagesController < ApplicationController
   end
 
   private
+
+  def check_timeout
+    redirect_to result_test_passage_path(@test_passage) if @test_passage.timeout?
+  end
 
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])

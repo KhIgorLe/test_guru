@@ -9,6 +9,7 @@
   <td class="align-middle"><%= test.category.title %></td>
   <td class="align-middle"><%= test.author.name %></td>
   <td class="align-middle"><%= test.questions.count %></td>
+  <td class="align-middle"><%= test.time %></td>
   <td class="align-middle">
     <%= link_to t('.edit'), edit_admin_test_path(test),
                 data: { test_id: test.id},

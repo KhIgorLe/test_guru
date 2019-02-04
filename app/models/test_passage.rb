@@ -35,6 +35,14 @@ class TestPassage < ApplicationRecord
     percent_correct_answers >= SUCCESS_PERCENT
   end
 
+  def remaining_seconds
+    (created_at + test.time.seconds - Time.current).to_i
+  end
+
+  def timeout?
+    remaining_seconds <= 0
+  end
+
   private
 
   def set_first_question

@@ -9,6 +9,7 @@ ru:
         level: "Уровень"
         category_id: "Категория"
         category: "Категория"
+        time: "Время"
 
     errors:
       messages:
