@@ -8,6 +8,7 @@ en:
         title: "Title"
         level: "Level"
         category: "Category"
+        time: "Time"
 
     errors:
       messages:

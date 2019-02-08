@@ -19,7 +19,7 @@ class Test < ApplicationRecord
   has_many :test_passages
   has_many :users, through: :test_passages
 
-  validates :title, :level, presence: true
+  validates :title, :level, :time, presence: true
   validates :title, uniqueness: { scope: :level }
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to_than: 0 }
 
@@ -33,4 +33,8 @@ class Test < ApplicationRecord
   scope :advanced,   -> { level(2) }
   scope :hard,       -> { level(3) }
   scope :hero,       -> { level(4..Float::INFINITY) }
+
+  def has_timer?
+    time.present?
+  end
 end

@@ -34,6 +34,7 @@ ru:
       level: "Уровень"
       category: "Категория"
       questions: "Вопросы"
+      time: "Время"
 
   admin:
     nav:
@@ -55,6 +56,7 @@ ru:
         category: "Категория"
         author: "Автор"
         questions: "Вопросы"
+        time: "Время"
         actions: "Действия"
       new:
         header: "Введите данные для создания теста:"
@@ -93,6 +95,7 @@ ru:
       count_questions: "Количество вопросов: %{count}"
       current_question_number: "Текущий вопрос номер: %{number}"
       next: "Следующий"
+      time: "Время до окончания теста"
 
   failed: "Тест провален"
   success: "Тест успешно завершён"

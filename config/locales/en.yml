@@ -34,6 +34,7 @@ en:
       level: "Level"
       category: "Category"
       questions: "Questions"
+      time: "Time"
 
   admin:
     nav:
@@ -55,6 +56,7 @@ en:
         category: "Category"
         author: "Author"
         questions: "Questions"
+        time: "Time"
         actions: "Actions"
       new:
         header: "Enter data to create a test:"
@@ -92,6 +94,7 @@ en:
       count_questions: "Count questions: %{count}"
       current_question_number: "Current question number: %{number}"
       next: "Next"
+      time: "Time before finish test"
 
   failed: "Test failed"
   success: "Test successfully completed"
