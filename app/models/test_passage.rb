@@ -36,11 +36,15 @@ class TestPassage < ApplicationRecord
   end
 
   def remaining_seconds
-    (created_at + test.time.seconds - Time.current).to_i
+    (created_at + test.time.seconds - Time.current).to_i if test_has_timer?
   end
 
   def timeout?
-    remaining_seconds <= 0
+    remaining_seconds <= 0 if test_has_timer?
+  end
+
+  def test_has_timer?
+    test.has_timer?
   end
 
   private

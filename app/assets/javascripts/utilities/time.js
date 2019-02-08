@@ -25,5 +25,5 @@ function downCount(time) {
 function showRemainingTime(remaining_seconds, time) {
   minutes = parseInt(remaining_seconds / 60)
   seconds = remaining_seconds % 60
-  time.innerHTML = minutes + ":" + seconds
+  time.textContent = minutes + ":" + seconds
 }

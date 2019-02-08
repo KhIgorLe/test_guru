@@ -33,4 +33,8 @@ class Test < ApplicationRecord
   scope :advanced,   -> { level(2) }
   scope :hard,       -> { level(3) }
   scope :hero,       -> { level(4..Float::INFINITY) }
+
+  def has_timer?
+    time.present?
+  end
 end

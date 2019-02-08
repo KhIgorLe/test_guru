@@ -3,8 +3,10 @@
 <br>
 
 <p>
-  <%= t('.time') %>
-  <%= content_tag :span, nil, id: 'timer', data: { remaining_seconds: @test_passage.remaining_seconds } %>
+  <% if @test_passage.test_has_timer? %>
+    <%= t('.time') %>
+    <%= content_tag :span, nil, id: 'timer', data: { remaining_seconds: @test_passage.remaining_seconds } %>
+  <% end %>
 </p>
 
 <b> <%= t('.count_questions', count: @test_passage.count_questions) %></b>
