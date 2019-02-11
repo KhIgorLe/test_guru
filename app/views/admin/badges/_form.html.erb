@@ -1,0 +1,25 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </p>
+
+  <p>
+    <%= form.label :image %>
+    <%= form.text_field :image, required: true %>
+  </p>
+
+  <p>
+    <%= form.label :rule_type %>
+    <%= form.select :rule_type, options_for_select(Badge::TYPES, selected: form.object.rule_type) %>
+  </p>
+
+  <p>
+    <%= form.label :rule_value %>
+    <%= form.text_field :rule_value, required: true%>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>

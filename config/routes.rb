@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :feedbacks, only: %i[new create]
 
+  resources :badges, only: :index
+
   resources :tests, only: :index do
     resources :questions, only: :index, shallow: true
 
@@ -23,6 +25,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: 'tests#index'
+
+    resources :badges
 
     resources :tests do
       patch :update_inline, on: :member

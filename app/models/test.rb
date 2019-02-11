@@ -2,13 +2,14 @@
 #
 # Table name: tests
 #
-#  id          :integer          not null, primary key
+#  id          :bigint(8)        not null, primary key
 #  title       :string           not null
 #  level       :integer          default(0), not null
 #  category_id :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  author_id   :integer          not null
+#  time        :integer
 #
 
 class Test < ApplicationRecord
@@ -24,9 +25,8 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to_than: 0 }
 
   scope :level, -> (level) { where(level: level) }
-  scope :categories, -> (title) do
-    joins(:category).where(categories: {title: title}).order(title: :desc)
-  end
+  scope :passed, -> { where(test_passages: { passed: true }) }
+  scope :category, -> (category_id) { where(category_id: category_id) }
 
   scope :easy,       -> { level(0) }
   scope :elementary, -> { level(1) }

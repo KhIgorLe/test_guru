@@ -5,6 +5,7 @@ ru:
       login: "Логин"
       sign_up: "Регистрация"
       control_panel: "Панель управления"
+      link_to_badges: "Награды"
 
     footer:
       description: "Тут текст краткого описания проекта"
@@ -40,6 +41,7 @@ ru:
     nav:
       link_to_tests: "Тесты"
       link_to_categoties: "Категории"
+      link_to_badges: "Награды"
       logout: "Выход"
     tests:
       test:
