@@ -13,7 +13,20 @@ class TestPassagesController < ApplicationController
     @test_passage.accept!(params[:answer_ids])
 
     if @test_passage.completed?
+
       TestsMailer.completed_test(@test_passage).deliver_now
+
+      if @test_passage.successfully_completed?
+        @test_passage.passed!
+
+        @badges = BadgeUserService.new(@test_passage).get_badges
+
+        if @badges.present?
+          current_user.badges.push(@badges)
+
+          flash[:notice] = "Вы получили бейдж"
+        end
+      end
 
       redirect_to result_test_passage_path(@test_passage)
     else

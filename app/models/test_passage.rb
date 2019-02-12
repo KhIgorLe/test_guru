@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: test_passages
+#
+#  id                  :bigint(8)        not null, primary key
+#  user_id             :integer
+#  test_id             :integer
+#  correct_questions   :integer          default(0)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  current_question_id :integer
+#  passed              :boolean          default(FALSE)
+#
+
 class TestPassage < ApplicationRecord
   SUCCESS_PERCENT = 85.freeze
 
@@ -8,6 +22,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_first_question, on: :create
   before_update     :set_next_question
+
+  scope :user, -> (user) { where(user: user) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
@@ -33,6 +49,10 @@ class TestPassage < ApplicationRecord
 
   def successfully_completed?
     percent_correct_answers >= SUCCESS_PERCENT
+  end
+
+  def passed!
+    update(passed: true)
   end
 
   def remaining_seconds
@@ -68,6 +88,6 @@ class TestPassage < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question&.id).first
   end
 end

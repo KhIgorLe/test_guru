@@ -5,6 +5,7 @@ en:
       login: "Login"
       sign_up: "Sign up"
       control_panel: "Control panel"
+      link_to_badges: "Badges"
 
     footer:
       description: "Here is the text of a brief description of the project"
@@ -40,6 +41,7 @@ en:
     nav:
       link_to_tests: "Tests"
       link_to_categoties: "Categories"
+      link_to_badges: "Badges"
       logout: "Logout"
     tests:
       test:

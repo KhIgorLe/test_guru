@@ -4,6 +4,7 @@
     <% if current_user.admin? %>
       <%= link_to t('.control_panel'), admin_tests_path, class: "p-2 text-dark" %>
     <% end %>
+    <%= link_to t('.link_to_badges'), badges_path, class: "p-2 text-dark"%>
     <%= link_to t('.logout'), destroy_user_session_path, method: "delete", class: "btn btn-outline-primary" %>
   <% else %>
     <nav class="my-2 my-md-0 mr-md-3">
